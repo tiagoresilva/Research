@@ -1,0 +1,15 @@
+The choice of softmax seems like an arbitrary way to normalize data, but it is not. The output class is usually modeled as a probability distribution. For a two-class problem, the output distribution conditioned on it’s inputs is usually modeled as Bernoulli:
+
+y|x;θ∼Bernoulli(ϕ) 
+
+Similarly, in a multi-class problem, the output distribution conditioned on its inputs is modeled as a multinomial distribution. Both of these distributions are members of the exponential family, and can be written as
+
+p(y;η)=b(y)exp(ηTT(y)−a(n)) 
+
+The parameter  η  is called the natural parameter. In a Generalized Linear Model (GLM), it is assumed that  ηi (for vector valued  η ) is linearly related to the input as
+
+ηi=θTix 
+
+With this assumption, it can be shown that the mapping from the sufficient statistic to the distribution parameters is just the sigmoid in the case of logistic regression), and the softmax function in the more general case.
+
+For a much more thorough probabilistic interpretation, please see read Part III: Generalized Linear Models of the
